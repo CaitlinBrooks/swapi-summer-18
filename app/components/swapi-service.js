@@ -1,4 +1,5 @@
 import Person from "../models/Person.js";
+import Starship from "../models/Starship"
 
 
 export default class SwapiService {
