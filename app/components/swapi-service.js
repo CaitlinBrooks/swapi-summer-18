@@ -28,6 +28,7 @@ export default class SwapiService {
     fetch('https://swapi.co/api/people')
       .then(res => res.json())
       .then(res => {
+
         let [myPeople] = res.results.map(rawPerson => {
           let person = new Person(rawPerson)
           people[person.id] = person
