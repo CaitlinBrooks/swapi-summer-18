@@ -10,7 +10,17 @@ function draw(data) {
   <button onclick="app.controllers.swapi.getStarships()">
   Get Starships
   </button>
-  <div id="starships"></div>`
+  <div id="starships"></div>
+  <div id="error"></div>
+  <button onclick="app.controllers.swapi.getPeople()">
+  Get People
+  </button>
+  <div id="people"></div>
+  <div id="error"></div>
+  <button onclick="app.controllers.swapi.getPlanets()">
+  Get Planets
+  </button>
+  <div id="planets"></div>`
 }
 
 function drawStarships(data) {
@@ -39,7 +49,18 @@ function drawPeople(data) {
 
 }
 
+function drawPlanets(data) {
+  let planetsElem = document.getElementById('planets')
+  let template = ''
+  data.results.forEach(planet => {
+    template += `<div>
+    ${planet.name}
+    </div>`
+  })
 
+  planetsElem.innerHTML = template
+
+}
 
 function drawError(error) {
   console.log(error)
