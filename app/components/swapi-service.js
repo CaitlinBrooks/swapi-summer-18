@@ -1,5 +1,5 @@
 import Person from "../models/Person.js";
-import Starship from "../models/Starship.js"
+import Planet from "../models/Planet.js";
 
 
 export default class SwapiService {
@@ -11,7 +11,7 @@ export default class SwapiService {
       .then(res => res.json())
       .then(res => {
         let myPlanets = res.results.map(rawPlanet => {
-          return new Person(rawPlanet)
+          return new Planet(rawPlanet)
         })
         draw(myPlanets)
       })

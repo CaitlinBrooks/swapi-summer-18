@@ -1,4 +1,5 @@
 import SwapiService from "./swapi-service.js";
+import Person from "../models/Person.js";
 
 const swapiService = new SwapiService
 let app = document.getElementById('app')
@@ -37,15 +38,15 @@ function drawStarships(data) {
 }
 
 function drawPeople(data) {
-  let starshipsElem = document.getElementById('people')
+  let peopleElem = document.getElementById('people')
   let template = ''
-  data.results.forEach(starship => {
+  data.results.forEach(person => {
     template += `<div>
-    ${starship.name}
+    ${person.name}
     </div>`
   })
 
-  starshipsElem.innerHTML = template
+  peopleElem.innerHTML = template
 
 }
 
