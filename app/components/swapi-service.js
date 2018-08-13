@@ -1,6 +1,9 @@
 import Person from "../models/Person.js";
 import Planet from "../models/Planet.js";
 
+let people = {}
+
+
 
 export default class SwapiService {
 
@@ -25,8 +28,10 @@ export default class SwapiService {
     fetch('https://swapi.co/api/people')
       .then(res => res.json())
       .then(res => {
-        let myPeople = res.results.map(rawPerson => {
-          return new Person(rawPerson)
+        let [myPeople] = res.results.map(rawPerson => {
+          let person = new Person(rawPerson)
+          people[person.id] = person
+          return person
         })
         draw(myPeople)
       })
