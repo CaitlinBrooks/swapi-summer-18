@@ -26,6 +26,21 @@ function drawStarships(data) {
 
 }
 
+function drawPeople(data) {
+  let starshipsElem = document.getElementById('people')
+  let template = ''
+  data.results.forEach(starship => {
+    template += `<div>
+    ${starship.name}
+    </div>`
+  })
+
+  starshipsElem.innerHTML = template
+
+}
+
+
+
 function drawError(error) {
   console.log(error)
   document.getElementById('error').innerHTML = error.message
